@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer's Guide - Community Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <span class="logo-text">Engineer's Guide</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Jobs</a>
+                <a href="#" class="nav-link">Marketplace</a>
+                <a href="#" class="nav-link active">Community</a>
+                <a href="#" class="nav-link">Coach</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Guide <i class="fas fa-chevron-down"></i></a>
+                </div>
+            </div>
+            
+            <div class="nav-auth">
+                <button class="signin-btn" onclick="openAuthModal()">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Community Hub</h1>
+            <p class="hero-subtitle">Join a thriving community of engineers who support, inspire, and learn from each other</p>
+        </section>
+
+        <!-- Feature Cards -->
+        <section class="features-section">
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Connect with Engineers</h3>
+                    <p class="feature-description">Network with like-minded engineers and build meaningful relationships</p>
+                    <button class="feature-btn" onclick="showConnectModal()">Find Engineers</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="feature-title">Share Insights</h3>
+                    <p class="feature-description">Exchange experiences, tips, and lessons learned with the community</p>
+                    <button class="feature-btn" onclick="showAskQuestionForm()">Ask Questions</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Support Each Other</h3>
+                    <p class="feature-description">Get help when you need it and offer support to fellow engineers</p>
+                    <button class="feature-btn" onclick="showMentorshipPage()">Get Support</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Discussions Section -->
+        <section class="discussions-section">
+            <div class="discussions-header">
+                <h2 class="discussions-title">Trending Discussions</h2>
+                <button class="start-discussion-btn" onclick="showAskQuestionForm()">
+                    <i class="fas fa-plus"></i> Start Discussion
+                </button>
+            </div>
+            
+            <div class="discussions-list" id="discussionsList">
+                <!-- Discussion cards will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Ask Question Modal -->
+    <div class="modal" id="askQuestionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ask a Question</h3>
+                <button class="close-btn" onclick="closeModal('askQuestionModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="ask-question-form" id="askQuestionForm">
+                <div class="form-group">
+                    <label for="questionTitle">Question Title</label>
+                    <input type="text" id="questionTitle" placeholder="e.g., How can I get an internship in 2nd year?" required>
+                </div>
+                <div class="form-group">
+                    <label for="questionContent">Question Details</label>
+                    <textarea id="questionContent" rows="5" placeholder="Provide more details about your question..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="questionTags">Tags</label>
+                    <input type="text" id="questionTags" placeholder="e.g., Internships, Resume, DSA">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('askQuestionModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Post Question</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sign In</h3>
+                <button class="close-btn" onclick="closeModal('authModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="auth-options">
+                <button class="google-auth-btn" onclick="signInWithGoogle()">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                <form class="auth-form" id="authForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Detail Modal -->
+    <div class="modal" id="questionDetailModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="modalQuestionTitle">Question Title</h3>
+                <button class="close-btn" onclick="closeModal('questionDetailModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="question-detail-content" id="questionDetailContent">
+                <!-- Question and answers will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Engineer's Guide</h4>
+                <p>Your ultimate resource for engineering career growth and community support.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="mailto:contact@engineersguide.com">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i> Telegram</a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Engineer's Guide. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
