@@ -5,7 +5,6 @@
 VentureNest is a comprehensive, AI-powered platform designed to support entrepreneurs, startup teams, and developers throughout their entire journey — from ideation to launch and beyond. With an integrated suite of modules, VentureNest empowers users to build, grow, connect, hire, and monetize within one cohesive environment.
 
 ---
-
 ## 🌟 Key Features
 
 ### 1. 📘 Startup Guide
