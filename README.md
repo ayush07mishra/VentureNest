@@ -59,6 +59,12 @@ OPENAI_API_KEY=your_openai_key
 JWT_SECRET=your_jwt_secret
 SENDGRID_KEY=your_sendgrid_key
 
+<img width="1468" height="735" alt="Screenshot 2026-03-30 at 10 03 01 PM" src="https://github.com/user-attachments/assets/8328351a-3cea-4b8b-b714-5b63ed248b33" />
+<img width="1466" height="738" alt="Screenshot 2026-03-30 at 10 02 43 PM" src="https://github.com/user-attachments/assets/4a9cf517-9856-43a0-8a67-6c9cf70b97b7" />
+<img width="1466" height="728" alt="Screenshot 2026-03-30 at 10 02 31 PM" src="https://github.com/user-attachments/assets/c7058eaf-f593-460a-81a3-43c726e8a602" />
+<img width="1459" height="737" alt="Screenshot 2026-03-30 at 9 59 26 PM" src="https://github.com/user-attachments/assets/7978d212-8404-4cc9-a20d-932c049fa7a4" />
+
+
 
 ## 📦 Setup Instructions
 
