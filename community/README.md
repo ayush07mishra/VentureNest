@@ -1,4 +1,4 @@
-# Engineer's Guide - Community Module (HTML/CSS/JS + Node.js)
+# Engineer's Guide - Community Module
 
 A responsive Community module (like Quora) built with **HTML**, **CSS**, **JavaScript**, and **Node.js Express** backend for the "Engineer's Guide" final year project.
 
